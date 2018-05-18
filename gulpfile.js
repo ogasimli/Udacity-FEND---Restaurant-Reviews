@@ -80,14 +80,8 @@ gulp.task('images', () => {
         width: 300,
         rename: { suffix: '-s' }
       }, {
-        width: 300 * 2,
-        rename: { suffix: '-s@2x' }
-      }, {
         width: 400,
         rename: { suffix: '-m' }
-      }, {
-        width: 400 * 2,
-        rename: { suffix: '-m@2x' }
       }, {
         width: 600,
         rename: { suffix: '-l' }
@@ -95,9 +89,6 @@ gulp.task('images', () => {
         // Compress, strip metadata, and rename original image
         rename: { suffix: '-xl' }
       }],
-      // '*.png': {
-      //   width: '100%'
-      // },
       '*': {
         width: '100%'
       }
@@ -113,7 +104,7 @@ gulp.task('images', () => {
         max: true
       }))
     .pipe($.cache($.imagemin()))
-    .pipe(gulp.dest('dist/images'));
+    .pipe($.if(dev, gulp.dest('.tmp/images'), gulp.dest('dist/images')));
 });
 
 gulp.task('fonts', () => {
@@ -138,7 +129,7 @@ gulp.task('data', () => {
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', () => {
-  runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {
+  runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts', 'images'], () => {
     browserSync.init({
       notify: false,
       port: 9000,
