@@ -1,0 +1,24 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "name": "FEND Restaurant Reviews App",
+  "description": "Restaurant Reviews App for Udacity Front-End Developer Nanodegree",
+  "theme_color": "#8C43FF",
+  "background_color": "#f3f3f3",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "./index.html",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "type": "image/ico",
+      "sizes": "16x16"
+    }
+  ],
+  "serviceworker": {
+    "src": "scripts/sw.js",
+    "scope": "/",
+    "update_via_cache": "imports"
+  }
+}
