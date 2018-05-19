@@ -14,25 +14,15 @@ Make the provided site fully responsive. All of the page elements should be usab
 
 You will convert a site that looks like this:
 
-<span style="display:block;text-align:center">
-  <img src="./assets/docs/starter-mobile-page-1.png" alt="initial Image app 1" style="width: 450px;"/>
-</span>
+<img src="./screenshots/starter-mobile-page-1.png" alt="initial Image app 1" width="350">
 ---
-<span style="display:block;text-align:center">
-  <img src="./assets/docs/starter-mobile-page-2.png" alt="initial Image app 2" style="width: 450px;"/>
-</span>
+<img src="./screenshots/starter-mobile-page-2.png" alt="initial Image app 2" width="350">
 
 into a site that looks like this:
 
-<span style="display:block;text-align:center">
-  <img src="./assets/docs/finished-mobile-page-1.png" alt="final Image app 1" style="width: 450px;"/>
-</span>
-
+<img src="./screenshots/finished-mobile-page-1.png" alt="final Image app 1" width="350">
 ---
-
-<span style="display:block;text-align:center">
-  <img src="./assets/docs/finished-mobile-page-2.png" alt="final Image app 2" style="width: 450px;"/>
-</span>
+<img src="./screenshots/finished-mobile-page-2.png" alt="final Image app 2" width="350">
 
 ---
 
@@ -42,41 +32,11 @@ into a site that looks like this:
 
 ## Installation
 
-Clone the GitHub repository and use **Npm** to install dependencies.
+To run this app you will have to have [**Node.js**](https://nodejs.org/en/), [**npm**](https://www.npmjs.com/get-npm) and [**bower**](https://bower.io/) installed in your machine.
 
-````
-$ git clone https://github.com/Tsuna-mi/mws-restaurant.git
-$ cd mws-restaurant
-$ npm install
-````
+Please follow below instructions to run the project in your machine:
 
-## Usage
-
-You need to have a simple HTTP server to serve up the site files on your local computer. If you have Python installed on your machine (check with `python -V`), you can run:
-
-- For python 2.x: `python -m SimpleHTTPServer 8000` (or with other port)
-- For python 3.x: `python3 -m http.server 8000` (or with other port)
-
-Or you can run other server of your preference. I usually work with npm packages, for that I use **http-server** node package. Easy to install with: `npm install http-server -g`. To run, inside the project directory, if you don't need more options: `http-server -p 8000`
-See the different options at: [http-server](https://www.npmjs.com/package/http-server).
-
-Then you can open: 'http://localhost:8000/'
-
-----
-
-If you prefer, you can run:
-````
-gulp serve
-````
-to run a **dev version** of the application with optimised images, or
-
-````
-gulp serve:dist
-````
-to run a **distribution version** of the application with minified files and optimised images.
-
-(At gulpfile there are other tasks listed you can use)
-
-With your server running, visit the site: `http://localhost:8000`.
-
-## License
+1. Clone repository to your local disk
+2. Open terminal and navigate to the project folder
+3. Run `npm run install` command from terminal to install all dependencies
+4. Run `npm start` command to compile project and run a **dev version** of the application with optimised images. Alternatively, you can run `npm run serve` command to compile project and run a **distribution version** of the application with minified files and optimised images.

@@ -4,7 +4,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "install": "npm install bower install",
+    "install": "npm install && bower install",
     "serve": "gulp serve:dist",
     "start": "gulp serve"
   },
