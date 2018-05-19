@@ -167,10 +167,15 @@ class DBHelper {
    * Map marker for a restaurant.
    */
   static mapMarkerForRestaurant(restaurant, map) {
+    const google = window.google;
+    const image = {
+      url: '/images/restaurant_pin_map-48.png',
+    };
     const marker = new google.maps.Marker({
       position: restaurant.latlng,
       title: restaurant.name,
       url: DBHelper.urlForRestaurant(restaurant),
+      icon: image,
       map: map,
       animation: google.maps.Animation.DROP
     }

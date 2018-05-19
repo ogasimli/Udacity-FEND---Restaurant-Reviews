@@ -3,6 +3,11 @@
   "engines": {
     "node": ">=4"
   },
+  "scripts": {
+    "install": "npm install bower install",
+    "serve": "gulp serve:dist",
+    "start": "gulp serve"
+  },
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-preset-env": "^1.7.0",

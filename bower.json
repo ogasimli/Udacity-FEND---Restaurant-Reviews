@@ -2,7 +2,8 @@
   "name": "restaurant-reviews",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "snackbar": "^0.1.8"
   },
   "devDependencies": {
     "chai": "^4.1.2",

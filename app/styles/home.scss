@@ -1,5 +1,4 @@
 @charset "utf-8";
-/* CSS Document */
 
 @import 'base';
 
@@ -69,7 +68,7 @@
     padding: 25px;
     text-align: left;
     width: 270px;
-    min-width: 250px;
+    min-width: 280px;
     transition: box-shadow 0.3s ease-in-out;
     h1 {
       color: $primary-text-color;

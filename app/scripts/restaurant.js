@@ -18,14 +18,14 @@ window.initMap = () => {
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
     }
   });
-}
+};
 
 /**
  * Get current restaurant from page URL.
  */
 let fetchRestaurantFromURL = (callback) => {
   if (self.restaurant) { // restaurant already fetched!
-    callback(null, self.restaurant)
+    callback(null, self.restaurant);
     return;
   }
   const id = getParameterByName('id');
@@ -40,10 +40,10 @@ let fetchRestaurantFromURL = (callback) => {
         return;
       }
       fillRestaurantHTML();
-      callback(null, restaurant)
+      callback(null, restaurant);
     });
   }
-}
+};
 
 /**
  * Create restaurant HTML and add it to the webpage
@@ -56,7 +56,7 @@ let fillRestaurantHTML = (restaurant = self.restaurant) => {
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  image.className = 'restaurant-img';
   image.srcset = DBHelper.imageSrcsetForRestaurant(restaurant);
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.alt = `Photo from ${restaurant.name} restaurant`;
@@ -70,7 +70,7 @@ let fillRestaurantHTML = (restaurant = self.restaurant) => {
   }
   // fill reviews
   fillReviewsHTML();
-}
+};
 
 /**
  * Create restaurant operating hours HTML table and add it to the webpage.
@@ -85,17 +85,17 @@ let fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours)
 
     const day = document.createElement('td');
     day.innerHTML = key;
-    day.classList.add('day')
+    day.classList.add('day');
     row.appendChild(day);
 
     const time = document.createElement('td');
     time.innerHTML = operatingHours[key];
-    time.classList.add('time')
+    time.classList.add('time');
     row.appendChild(time);
 
     table.appendChild(row);
   }
-}
+};
 
 /**
  * Create all reviews HTML and add them to the webpage.
@@ -117,7 +117,7 @@ let fillReviewsHTML = (reviews = self.restaurant.reviews) => {
     ul.appendChild(createReviewHTML(review));
   });
   container.appendChild(ul);
-}
+};
 
 /**
  * Create review HTML and add it to the webpage.
@@ -151,7 +151,7 @@ let createReviewHTML = (review) => {
   li.appendChild(comments);
 
   return li;
-}
+};
 
 /**
  * Add restaurant name to the breadcrumb navigation menu
@@ -161,7 +161,7 @@ let fillBreadcrumb = (restaurant = self.restaurant) => {
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
   breadcrumb.appendChild(li);
-}
+};
 
 /**
  * Get a parameter by name from page URL.
@@ -177,4 +177,30 @@ let getParameterByName = (name, url) => {
   if (!results[2])
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
+};
+
+/**
+ * Show snackbar to update service worker and cache
+ */
+let showSnackbar = (worker) => {
+  const snackbarConfig = {
+    text: 'New version available',
+    backgroundColor: '#fff',
+    textColor: '#0a0a0a',
+    actionText: 'Refresh',
+    actionTextColor: '#8C43FF',
+    onActionClick: function (element) {
+      worker.postMessage({ action: 'skipWaiting' });
+      element.style.opacity = 0;
+    },
+    showSecondButton: true,
+    secondButtonText: 'Dismiss',
+    secondButtonTextColor: '#8C43FF',
+    onSecondButtonClick: function (element) {
+      element.style.opacity = 0;
+    },
+    duration: 0
+  };
+
+  Snackbar.show(snackbarConfig)
+};

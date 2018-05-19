@@ -177,6 +177,32 @@ let addMarkersToMap = (restaurants = self.restaurants) => {
   });
 };
 
+/**
+ * Show snackbar to update service worker and cache
+ */
+let showSnackbar = (worker) => {
+  const snackbarConfig = {
+    text: 'New version available',
+    backgroundColor: '#fff',
+    textColor: '#0a0a0a',
+    actionText: 'Refresh',
+    actionTextColor: '#8C43FF',
+    onActionClick: function (element) {
+      worker.postMessage({ action: 'skipWaiting' });
+      element.style.opacity = 0;
+    },
+    showSecondButton: true,
+    secondButtonText: 'Dismiss',
+    secondButtonTextColor: '#8C43FF',
+    onSecondButtonClick: function (element) {
+      element.style.opacity = 0;
+    },
+    duration: 0
+  };
+
+  Snackbar.show(snackbarConfig)
+};
+
 // Add event listener to select neighborhoods
 nSelect.addEventListener('change', updateRestaurants);
 // Add event listener to select cousine

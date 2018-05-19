@@ -1,5 +1,4 @@
 @charset "utf-8";
-/* CSS Document */
 
 @import 'reset';
 @import 'vendor';
@@ -23,6 +22,9 @@ header {
         font-size: 2rem;
         text-transform: uppercase;
       }
+      a:hover {
+        color: $primary-dark-color;
+      }
     }
   }
 }
@@ -44,10 +46,10 @@ header {
   padding: 25px;
   text-align: center;
   text-transform: uppercase;
+  a {
+    color: #fff;
+  }
+  a:hover {
+    color: $primary-dark-color;
+  }
 }
-
-// @media screen and (max-width: 497px) {
-//   .filter-options {
-//     height: 140px;
-//   }
-// }

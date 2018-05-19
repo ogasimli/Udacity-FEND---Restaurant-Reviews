@@ -1,5 +1,4 @@
 @charset "utf-8";
-/* CSS Document */
 
 @import 'base';
 
@@ -17,7 +16,7 @@ header {
       list-style: none;
       background-color: #eee;
       font-size: 17px;
-      font-weight: 500;
+      font-weight: 600;
       margin: 0;
       width: 100%;
       /* Display list items side by side */
@@ -175,7 +174,8 @@ header {
       align-items: center;
       letter-spacing: 1px;
       .date {
-        color: $secondary-text-color;
+        font-size: 0.7rem;
+        font-weight: 300;
       }
     }
     .rating {
@@ -204,8 +204,17 @@ header {
     }
     #restaurant-container {
       width: 100%;
+      #restaurant-name {
+        width: 100%;
+      }
       #restaurant-image-container {
         margin: 0 auto;
+      }
+      #restaurant-address {
+        width: 100%;
+      }
+      #restaurant-hours {
+        width: 100%;
       }
     }
   }
