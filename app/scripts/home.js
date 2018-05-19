@@ -3,6 +3,9 @@ let restaurants,
   cuisines,
   map;
 const markers = [];
+const nSelect = document.querySelector('#neighborhoods-select');
+const cSelect = document.querySelector('#cuisines-select');
+const restaurantList = document.querySelector('#restaurants-list');
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -30,12 +33,11 @@ let fetchNeighborhoods = () => {
  * Set neighborhoods HTML.
  */
 let fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
-  const select = document.getElementById('neighborhoods-select');
   neighborhoods.forEach(neighborhood => {
     const option = document.createElement('option');
     option.innerHTML = neighborhood;
     option.value = neighborhood;
-    select.append(option);
+    nSelect.append(option);
   });
 };
 
@@ -57,13 +59,11 @@ let fetchCuisines = () => {
  * Set cuisines HTML.
  */
 let fillCuisinesHTML = (cuisines = self.cuisines) => {
-  const select = document.getElementById('cuisines-select');
-
   cuisines.forEach(cuisine => {
     const option = document.createElement('option');
     option.innerHTML = cuisine;
     option.value = cuisine;
-    select.append(option);
+    cSelect.append(option);
   });
 };
 
@@ -87,8 +87,6 @@ window.initMap = () => {
  * Update page and map for current restaurants.
  */
 let updateRestaurants = () => {
-  const cSelect = document.getElementById('cuisines-select');
-  const nSelect = document.getElementById('neighborhoods-select');
 
   const cIndex = cSelect.selectedIndex;
   const nIndex = nSelect.selectedIndex;
@@ -112,8 +110,7 @@ let updateRestaurants = () => {
 let resetRestaurants = (restaurants) => {
   // Remove all restaurants
   self.restaurants = [];
-  const ul = document.getElementById('restaurants-list');
-  ul.innerHTML = '';
+  restaurantList.innerHTML = '';
 
   // Remove all map markers
   self.markers.forEach(m => m.setMap(null));
@@ -125,9 +122,8 @@ let resetRestaurants = (restaurants) => {
  * Create all restaurants HTML and add them to the webpage.
  */
 let fillRestaurantsHTML = (restaurants = self.restaurants) => {
-  const ul = document.getElementById('restaurants-list');
   restaurants.forEach(restaurant => {
-    ul.append(createRestaurantHTML(restaurant));
+    restaurantList.append(createRestaurantHTML(restaurant));
   });
   addMarkersToMap();
 };
@@ -142,7 +138,7 @@ let createRestaurantHTML = (restaurant) => {
   image.className = 'restaurant-img';
   image.srcset = DBHelper.imageSrcsetForRestaurant(restaurant);
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.alt = `${restaurant.name} Restaurant image: ${restaurant.description}`;
+  image.alt = `Photo from ${restaurant.name} restaurant`;
   li.append(image);
 
   const name = document.createElement('h1');
@@ -180,3 +176,8 @@ let addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 };
+
+// Add event listener to select neighborhoods
+nSelect.addEventListener('change', updateRestaurants);
+// Add event listener to select cousine
+cSelect.addEventListener('change', updateRestaurants);

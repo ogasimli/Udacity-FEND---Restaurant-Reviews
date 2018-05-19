@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+@import 'theme';
+
+body,
+td,
+th,
+p{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #333;
+	line-height: 1.5;
+}
+
+body {
+	background-color: $background-color;
+	margin: 0;
+	position:relative;
+}
+
+ul,
+li {
+	font-family: $font-stack;
+	font-size: 10pt;
+	color: #333;
+}
+
+a {
+	color: $primary-color;
+  text-decoration: none;
+  img{
+    border: none 0px #fff;
+  }
+}
+
+a:hover, a:focus {
+	color: $primary-dark-color;
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-stack;
+  margin: 0 0 20px;
+}
+
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+label {
+  position: absolute;
+  left: -500px;
+  color: white;
+}
+
+#skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: orange;
+  color: white;
+  padding: 5px 10px;
+  z-index: 100;
+}

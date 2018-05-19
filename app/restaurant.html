@@ -13,14 +13,8 @@
   <!-- Place favicon.ico in the root directory -->
   <link rel="icon" href="favicon.ico">
 
-  <!-- build:css styles/vendor.css -->
-  <link rel="stylesheet" href="styles/vendor.css">
-  <!-- bower:css -->
-  <!-- endbower -->
-  <!-- endbuild -->
-
   <!-- build:css styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/restaurant.css">
   <!-- endbuild -->
 
   <!-- Manifest file -->
@@ -28,67 +22,71 @@
 
 </head>
 
-<body class="inside">
+<body>
   <!-- Beginning header -->
   <header>
+    <a href="#restaurant-container" id="skip-link">Skip to main content →</a>
     <!-- Beginning nav -->
-    <nav>
+    <nav id="heading">
       <h1>
-        <a href="/">Restaurant Reviews</a>
+        <a href="index.html">Restaurant Reviews</a>
       </h1>
     </nav>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb">
-      <li>
-        <a href="/">Home</a>
-      </li>
-    </ul>
+    <nav id="breadcrumb" aria-label="breadcrumb">
+      <ul class="breadcrumb">
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+      </ul>
+    </nav>
     <!-- End breadcrumb -->
     <!-- End nav -->
   </header>
   <!-- End header -->
 
   <!-- Beginning main -->
-  <main id="maincontent">
-    <!-- Beginning map -->
-    <section id="map-container">
-      <div id="map"></div>
-    </section>
-    <!-- End map -->
-    <!-- Beginning restaurant -->
-    <section id="restaurant-container">
-      <h1 id="restaurant-name"></h1>
-      <img id="restaurant-img">
-      <p id="restaurant-cuisine"></p>
-      <p id="restaurant-address"></p>
-      <table id="restaurant-hours"></table>
-    </section>
-    <!-- end restaurant -->
-    <!-- Beginning reviews -->
-    <section id="reviews-container">
-      <ul id="reviews-list"></ul>
-    </section>
-    <!-- End reviews -->
+  <main id="maincontent" aria-label="content">
+    <div id="main-container">
+      <!-- Beginning map -->
+      <section id="map-container">
+        <div id="map" aria-hidden="true" role="application" tabindex="-1"></div>
+      </section>
+      <!-- End map -->
+      <!-- Beginning restaurant -->
+      <section id="restaurant-container" tabindex="-1" role="contentinfo">
+        <h2 id="restaurant-name"></h2>
+        <div id="restaurant-image-container">
+          <img id="restaurant-img">
+          <p id="restaurant-cuisine"></p>
+        </div>
+        <div>
+          <p id="restaurant-address">Address: </p>
+          <div id="restaurant-hours">
+            </table>
+          </div>
+      </section>
+      <!-- end restaurant -->
+      </div>
+      <!-- Beginning reviews -->
+      <section id="reviews-container">
+        <ul id="reviews-list"></ul>
+      </section>
+      <!-- End reviews -->
   </main>
   <!-- End main -->
 
   <!-- Beginning footer -->
   <footer id="footer">
     Copyright (c) 2017
-    <a href="/">
+    <a href="index.html">
       <strong>Restaurant Reviews</strong>
     </a> All Rights Reserved.
   </footer>
   <!-- End footer -->
 
-  <!-- build:js scripts/vendor.js -->
-  <!-- bower:js -->
-  <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
-
   <!-- build:js -->
-  <script type="application/javascript" charset="utf-8" src="scripts/restaurant_info.js"></script>
+  <script type="application/javascript" charset="utf-8" src="scripts/restaurant.js"></script>
   <!-- Database helpers -->
   <script type="application/javascript" charset="utf-8" src="scripts/dbhelper.js"></script>
   <!-- Google Maps -->

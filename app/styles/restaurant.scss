@@ -1,0 +1,212 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import 'base';
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  /* ====================== Restaurant Details ====================== */
+
+  #breadcrumb {
+    ul{
+      padding: 10px 40px 16px;
+      list-style: none;
+      background-color: #eee;
+      font-size: 17px;
+      font-weight: 500;
+      margin: 0;
+      width: 100%;
+      /* Display list items side by side */
+      li {
+        display: inline;
+        /* Add a color to all links inside the list */
+        a {
+          text-decoration: none;
+        }
+        /* Add a color on mouse-over */
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+      /* Add a slash symbol (/) before/behind each list item */
+      li+li:before {
+        padding: 8px;
+        color: black;
+        content: "/\00a0";
+      }
+    }
+  }
+}
+
+/* ====================== Main Container ====================== */
+
+#main-container {
+  height: auto;
+  background-color: $background-color;
+  padding: 1em 0;
+  overflow: hidden;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 180px 40px 16px;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+
+  /* ====================== Map ====================== */
+
+  #map-container {
+    width: 50%;
+    height: auto;
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  /* ====================== Restaurant Details ====================== */
+
+  #restaurant-container {
+    width: 50%;
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    text-align: center;
+    #restaurant-name {
+      width: 90%;
+      color: $primary-color;
+      font-size: 1.5rem;
+      font-weight: 200;
+      letter-spacing: 0;
+      margin: 15px 0;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    #restaurant-image-container {
+      width: 90%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 25px 0;
+      #restaurant-img {
+        width: 100%;
+      }
+      #restaurant-cuisine {
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+        background-color: $primary-color;
+        color: #fff;
+        font-size: 1.1rem;
+        letter-spacing: 5px;
+        text-align: center;
+        text-transform: uppercase;
+        opacity: 0.7;
+        z-index: 1;
+        position: absolute;
+        bottom: 5px;
+      }
+    }
+    #restaurant-address {
+      width: 90%;
+      font-size: 1rem;
+      color: $secondary-text-color;
+    }
+    #restaurant-hours {
+      width: 90%;
+      table {
+        margin: 0 auto;
+        border-spacing: 15px 2px;
+        .day {
+          font-weight: 600;
+          text-align: right;
+          margin: 0 2px 0 0;
+        }
+        td {
+          color: $secondary-text-color;
+        }
+      }
+    }
+  }
+}
+
+/* ====================== Restaurant Reviews ====================== */
+
+#reviews-container {
+  padding: 30px;
+  h2 {
+    color: $primary-color;
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center
+  }
+  #reviews-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style: outside none none;
+    li {
+      background-color: $card-bg-color;
+      box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+      border-radius: 30px 0;
+      margin: 15px 5px;
+      text-align: left;
+      width: 270px;
+      min-width: 250px;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+    .top {
+      background: #252831;
+      border-radius: 30px 0;
+      box-sizing: border-box;
+      color: #fff;
+      height: auto;
+      overflow: hidden;
+      width: 100%;
+      padding: 20px 25px;
+      position: relative;
+      top: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: 1px;
+      .date {
+        color: $secondary-text-color;
+      }
+    }
+    .rating {
+      margin: 25px;
+      padding: 5px;
+      background: $primary-color;
+      color: #fff;
+      font-size: 1em;
+      border-radius: .2em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .comment {
+      margin: 0 0 10px;
+      margin: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  #main-container {
+    padding: 180px 0 16px;
+    #map-container {
+      width: 100%;
+      height: 300px;
+    }
+    #restaurant-container {
+      width: 100%;
+      #restaurant-image-container {
+        margin: 0 auto;
+      }
+    }
+  }
+}

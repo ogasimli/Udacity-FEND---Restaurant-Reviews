@@ -57,7 +57,9 @@ let fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
+  image.srcset = DBHelper.imageSrcsetForRestaurant(restaurant);
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = `Photo from ${restaurant.name} restaurant`;
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -75,18 +77,23 @@ let fillRestaurantHTML = (restaurant = self.restaurant) => {
  */
 let fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
+  const table = document.createElement('table');
+  table.summary = 'Opening hours of the  restaurant';
+  hours.appendChild(table);
   for (let key in operatingHours) {
     const row = document.createElement('tr');
 
     const day = document.createElement('td');
     day.innerHTML = key;
+    day.classList.add('day')
     row.appendChild(day);
 
     const time = document.createElement('td');
     time.innerHTML = operatingHours[key];
+    time.classList.add('time')
     row.appendChild(time);
 
-    hours.appendChild(row);
+    table.appendChild(row);
   }
 }
 
@@ -117,20 +124,30 @@ let fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 let createReviewHTML = (review) => {
   const li = document.createElement('li');
-  const name = document.createElement('p');
+
+  const top = document.createElement('h4');
+  top.classList.add('top');
+
+  const name = document.createElement('span');
   name.innerHTML = review.name;
-  li.appendChild(name);
+  name.classList.add('name');
+  top.appendChild(name);
 
-  const date = document.createElement('p');
+  const date = document.createElement('span');
   date.innerHTML = review.date;
-  li.appendChild(date);
+  date.classList.add('date');
+  top.appendChild(date);
 
-  const rating = document.createElement('p');
+  li.appendChild(top);
+
+  const rating = document.createElement('span');
   rating.innerHTML = `Rating: ${review.rating}`;
+  rating.classList.add('rating');
   li.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
+  comments.classList.add('comment');
   li.appendChild(comments);
 
   return li;
@@ -140,7 +157,7 @@ let createReviewHTML = (review) => {
  * Add restaurant name to the breadcrumb navigation menu
  */
 let fillBreadcrumb = (restaurant = self.restaurant) => {
-  const breadcrumb = document.getElementById('breadcrumb');
+  const breadcrumb = document.getElementsByClassName('breadcrumb')[0];
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
   breadcrumb.appendChild(li);

@@ -13,14 +13,8 @@
   <!-- Place favicon.ico in the root directory -->
   <link rel="icon" href="favicon.ico">
 
-  <!-- build:css styles/vendor.css -->
-  <link rel="stylesheet" href="styles/vendor.css">
-  <!-- bower:css -->
-  <!-- endbower -->
-  <!-- endbuild -->
-
   <!-- build:css styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/home.css">
   <!-- endbuild -->
 
   <!-- Manifest file -->
@@ -32,8 +26,8 @@
 
   <body>
     <header>
-      <a href="#filter" id="skip-link">Skip to Filter Section→</a>
-      <nav>
+      <a href="#filter" id="skip-link">Skip to filter section →</a>
+      <nav id="heading">
         <h1>
           <a href="./index.html">Restaurant Reviews</a>
         </h1>
@@ -42,23 +36,23 @@
 
     <main class="maincontent" aria-label="content">
       <section class="map-container">
-        <div class="map" id="map" aria-hidden="true" role="application" tabindex="-1"></div>
+        <div id="map" aria-hidden="true" role="application" tabindex="-1"></div>
       </section>
       <section id="filter" tabindex="-1" role="search">
         <div class="filter-options">
           <h2>Filter Results</h2>
           <div class="filter">
             <label for="neighborhoods-select">Select neighborhood:</label>
-            <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+            <select id="neighborhoods-select" name="neighborhoods">
               <option value="all">All Neighborhoods</option>
             </select>
             <label for="cuisines-select">Select cuisine:</label>
-            <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+            <select id="cuisines-select" name="cuisines">
               <option value="all">All Cuisines</option>
             </select>
           </div>
         </div>
-        <ul class="cards flex-layout" id="restaurants-list" role="list"></ul>
+        <ul id="restaurants-list" role="list"></ul>
       </section>
     </main>
 
@@ -69,14 +63,8 @@
       </a> All Rights Reserved.
     </footer>
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
     <!-- build:js -->
-    <script type="application/javascript" charset="utf-8" src="scripts/main.js"></script>
+    <script type="application/javascript" charset="utf-8" src="scripts/home.js"></script>
     <!-- Database helpers -->
     <script type="application/javascript" charset="utf-8" src="scripts/dbhelper.js"></script>
     <!-- Google Maps -->
