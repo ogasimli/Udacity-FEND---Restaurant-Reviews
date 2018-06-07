@@ -1,6 +1,6 @@
-# Mobile Web Specialist Certification Course
+# Frontend Web Developer Nanodegree
 
-## Project Overview: Stage 1
+## Project Overview
 
 For the **Restaurant Reviews** projects, you will incrementally convert a static webpage to a mobile-ready web application. In **Stage One**, you will take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. You will also add a service worker to begin the process of creating a seamless offline experience for your users.
 
@@ -14,14 +14,14 @@ Make the provided site fully responsive. All of the page elements should be usab
 
 You will convert a site that looks like this:
 
-<img src="./screenshots/starter-mobile-page-1.png" alt="initial Image app 1" width="350">
----
+## <img src="./screenshots/starter-mobile-page-1.png" alt="initial Image app 1" width="350">
+
 <img src="./screenshots/starter-mobile-page-2.png" alt="initial Image app 2" width="350">
 
 into a site that looks like this:
 
-<img src="./screenshots/finished-mobile-page-1.png" alt="final Image app 1" width="350">
----
+## <img src="./screenshots/finished-mobile-page-1.png" alt="final Image app 1" width="350">
+
 <img src="./screenshots/finished-mobile-page-2.png" alt="final Image app 2" width="350">
 
 ---
@@ -36,8 +36,8 @@ To run this app you will have to have [**Node.js**](https://nodejs.org/en/), [**
 
 Please follow below instructions to run the project in your machine:
 
-1. Clone repository to your local disk
-2. Open terminal and navigate to the project folder
-3. Run `npm install` command from terminal to install all npm dependencies
-4. Run `bower install` command from terminal to install all bower dependencies
-5. Run `npm start` command to compile project and run a **dev version** of the application with optimised images. Alternatively, you can run `npm run serve` command to compile project and run a **distribution version** of the application with minified files and optimised images.
+1.  Clone repository to your local disk
+2.  Open terminal and navigate to the project folder
+3.  Run `npm install` command from terminal to install all npm dependencies
+4.  Run `bower install` command from terminal to install all bower dependencies
+5.  Run `npm start` command to compile project and run a **dev version** of the application with optimised images. Alternatively, you can run `npm run serve` command to compile project and run a **distribution version** of the application with minified files and optimised images.
